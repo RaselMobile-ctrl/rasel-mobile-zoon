@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090909"><title>RASEL MOBILE ZOON</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><span class="brand-mark" id="brandLogo">RMZ</span><span><b>RASEL MOBILE ZOON</b><small>PREMIUM MOBILE SHOWROOM</small></span></a><a class="admin-link" href="/admin">ADMIN</a></header>
+<section class="hero" id="heroBanner"><div class="hero-inner"><p class="eyebrow">WELCOME TO OUR SHOWROOM</p><h1>Find Your <em>Perfect</em><br>Smartphone</h1><p class="hero-copy">নতুন ও পুরাতন মোবাইলের বিশ্বস্ত ঠিকানা</p><a class="gold-btn" href="#products">মোবাইল দেখুন <span>→</span></a></div><div class="hero-orb">RMZ</div></section>
+<main>
+<section class="intro"><div><p class="eyebrow">OUR COLLECTION</p><h2>আপনার পছন্দের ফোন খুঁজুন</h2></div><input id="search" class="search" placeholder="ফোনের নাম বা ব্র্যান্ড লিখুন..."></section>
+<div class="filters"><button class="filter active" data-cat="all">সব ফোন</button><button class="filter" data-cat="new">নতুন ফোন</button><button class="filter" data-cat="used">পুরাতন ফোন</button><select id="brandFilter"><option value="">সব ব্র্যান্ড</option></select></div>
+<section id="products" class="products"><div class="loading">প্রোডাক্ট লোড হচ্ছে...</div></section>
+</main>
+<footer><b>RASEL MOBILE ZOON</b><p>আপনার বিশ্বস্ত মোবাইল শোরুম</p><small>© <span id="year"></span> RASEL MOBILE ZOON</small></footer>
+<div class="float-actions"><a id="callBtn" class="float call" href="tel:01788102096" aria-label="Call">☎</a><a id="waBtn" class="float wa" href="https://wa.me/8801788102096" target="_blank" rel="noopener" aria-label="WhatsApp">◉</a></div>
+<div id="orderModal" class="modal hidden"><div class="modal-card"><button class="close" id="closeModal">×</button><p class="eyebrow">PLACE YOUR ORDER</p><h2 id="modalProduct">অর্ডার করুন</h2><form id="orderForm"><input type="hidden" id="productId"><label>আপনার নাম<input name="customer_name" required maxlength="100"></label><label>মোবাইল নম্বর<input name="phone" required inputmode="tel" maxlength="30"></label><label>সম্পূর্ণ ঠিকানা<textarea name="address" required maxlength="500"></textarea></label><label>পরিমাণ<input name="quantity" type="number" min="1" max="20" value="1"></label><label>পেমেন্ট পদ্ধতি<select name="payment_method"><option value="Cash on Delivery">Cash on Delivery</option></select></label><p id="paymentInstructions" class="hint"></p><label>অতিরিক্ত তথ্য<textarea name="note" maxlength="500" placeholder="bKash/Nagad দিলে TrxID এখানে লিখুন"></textarea></label><button class="gold-btn full" type="submit">অর্ডার নিশ্চিত করুন</button><p id="orderMessage" class="message"></p></form></div></div>
+<script src="/app.js"></script>
+</body></html>
