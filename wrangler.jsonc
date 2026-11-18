@@ -12,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "rasel-mobile-zoon-db",
-      "database_id": "PASTE_YOUR_D1_DATABASE_ID_HERE"
+      "database_id": "ee57692b-0f9d-4088-b302-b58a48b694ec"
     }
   ],
   "r2_buckets": [
