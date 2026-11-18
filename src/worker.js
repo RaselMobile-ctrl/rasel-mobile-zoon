@@ -172,28 +172,10 @@ async function api(request, env, url) {
       return json({ ok: true });
     }
 
-    if (path === "/api/admin/upload" && method === "POST") {
-      const form = await request.formData();
-      const file = form.get("file");
-      if (!file || typeof file === "string") return json({ error: "ছবি নির্বাচন করুন।" }, 400);
-      if (!["image/png","image/jpeg","image/webp"].includes(file.type)) return json({ error: "PNG, JPG অথবা WebP ছবি দিন।" }, 400);
-      if (file.size > 5 * 1024 * 1024) return json({ error: "ছবির সাইজ ৫ MB-এর কম হতে হবে।" }, 400);
-      const key = `uploads/${uid()}`;
-      await env.IMAGES.put(key, file.stream(), { httpMetadata: { contentType: file.type } });
-      return json({ ok: true, key, url: `/media/${key}` });
-    }
+
   }
 
-  if (path.startsWith("/media/") && method === "GET") {
-    const key = path.slice("/media/".length);
-    const object = await env.IMAGES.get(key);
-    if (!object) return new Response("Not found", { status: 404 });
-    const headers = new Headers();
-    object.writeHttpMetadata(headers);
-    headers.set("etag", object.httpEtag);
-    headers.set("cache-control", "public, max-age=86400");
-    return new Response(object.body, { headers });
-  }
+
 
   return json({ error: "Not found" }, 404);
 }
@@ -201,7 +183,7 @@ async function api(request, env, url) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname.startsWith("/api/") || url.pathname.startsWith("/media/")) {
+    if (url.pathname.startsWith("/api/")) {
       try { return withCors(await api(request, env, url)); }
       catch (e) { return withCors(json({ error: "সার্ভারে সমস্যা হয়েছে। লগ বা Cloudflare সেটআপ পরীক্ষা করুন।" }, 500)); }
     }
